@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AuthService } from '../../servises/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +11,9 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  constructor(private authService:AuthService , private router:Router ){
 
+  }
   email = new FormControl("",[
     Validators.required,
     Validators.email
@@ -26,7 +30,8 @@ export class LoginComponent {
   })
 
   loginsubmit(){
-    console.log(this.loginform.value);
+    this.authService.loginuser(this.loginform.value.email!, this.loginform.value.password! );
+    // console.log(this.loginform.value);
   }
   loginreset(){
     this.loginform.reset();

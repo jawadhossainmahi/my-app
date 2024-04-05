@@ -1,7 +1,9 @@
 <div class="container">
     <div class="row">
         <div class="col-6 mx-auto">
+            <h1>Signup Form</h1>
             <form class="mt-5" #registerForm="ngForm">
+
                 <div class="form-group mb-3">
                     <label for="exampleInputEmail1">Email address</label>
                     <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
@@ -14,7 +16,7 @@
                 <div class="form-group mb-3">
                     <label for="exampleInputPassword1">Password</label>
                     <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" minlength="6"
-                          ngModel required #password="ngModel">
+                          ngModel required #password="ngModel" autocomplete="">
                     <small id="emailHelp" class="form-text text-danger"
                         [hidden]="password.valid || password.untouched">Password must be atlest 6 characters</small>
                 </div>
